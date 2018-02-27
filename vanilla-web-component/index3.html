@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A Pratical Guide to Vanilla Web Components: Module 1 - Web Components Fundamentals</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/1.7.2/document-register-element.js"></script>
+  <script>
+    // extends de uma classe nativa
+    class CustomAnchor extends HTMLAnchorElement {
+      connectedCallback() {
+        this.addEventListener('click', event => {
+          event.preventDefault();
+          console.log(event)
+          const result = confirm('Are you sure ?');
+          if (result) window.location.href = event.target.href;
+        });
+      }
+    }
+    // por extender de uma classe nativa, deve-se especificar a tag a ser extendida
+    window.customElements.define('custom-anchor', CustomAnchor, { extends: 'a' });
+  </script>
+</head>
+
+<body>
+  <!-- para utilizar o CustomAnchor deve-se especificar no elemento nativo em questão -->
+  <a is="custom-anchor" href="http://www.google.com">Go to Google</a>
+  <!-- <custom-anchor href="http://www.google.com">Go to Google</custom-anchor> -->
+</body>
+
+</html>

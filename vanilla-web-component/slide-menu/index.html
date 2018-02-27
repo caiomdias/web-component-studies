@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../style/style.css">
+	<script src="slid-menu.js"></script>
+	<title>A Pratical Guide to Vanilla Web Components</title>
+</head>
+
+<body>
+	<slide-menu id="menu">
+		<h3 slot="title">Nav Menu</h3>
+		<a href="#">One</a>
+		<a href="#">Tow</a>
+		<a href="#">Three</a>
+	</slide-menu>
+	<div class="controls">
+		<button class="btn" data-action="open">Open</button>
+		<button class="btn-red" data-action="close">Close</button>
+	</div>
+	<script>
+		const $controls = document.querySelector('.controls');
+		const $menu = document.getElementById('menu');
+
+		$controls.addEventListener('click', (event) => {
+			switch (event.target.dataset.action) {
+				case 'open':
+					$menu.open = true;
+					break;
+				case 'close':
+					$menu.open = false;
+					break;
+			}
+		});
+
+		$menu.addEventListener('menu-opened', (event) => {
+			console.log('MENU OPENED')
+		});
+
+		$menu.addEventListener('menu-closed', (event) => {
+			console.log('MENU CLOSED')
+		});
+	</script>
+</body>
+
+</html>

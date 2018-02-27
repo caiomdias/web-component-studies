@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A Pratical Guide to Vanilla Web Components: Module 1 - Web Components Fundamentals</title>
+</head>
+<script>
+  class MyCustomElement extends HTMLElement {
+    constructor() {
+      super();
+      // console.log('Hello World');
+    }
+    // callback e executado quando o elemento e criado na DOM
+    connectedCallback() {
+      console.log('connected callback is calling')
+    }
+
+    // define os nomes que serao alterados
+    static get observedAttributes() {
+      return ['demo']
+    }
+    // callback e executado quando um atributo de uma intancia de elemento é alterado
+    attributeChangedCallback(name, value, newValue) {
+      console.log('attribute changed callback in calling', name, value, newValue)
+    }
+
+    // callback executado quando e removido um elemento da DOM
+    disconnectedCallback() {
+      console.log('disconnected callback is calling')
+    }
+
+  }
+  window.customElements.define('my-custom-element', MyCustomElement);
+</script>
+
+<body>
+  <script>
+    // Cria uma instancia do custom element criado a cima
+    let $ce = document.createElement('my-custom-element');
+    setTimeout(() => {
+      // adiciona o custom element a DOM
+      document.body.appendChild($ce)
+    }, 3000)
+  </script>
+</body>
+
+</html>

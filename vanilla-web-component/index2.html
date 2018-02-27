@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A Pratical Guide to Vanilla Web Components: Module 1 - Web Components Fundamentals</title>
+
+  <script>
+    class DivisionElement extends HTMLElement {
+      dividebyTen(value) {
+        console.log(value / 10);
+      }
+    }
+    window.customElements.define('do-division', DivisionElement);
+
+    class MultiplyElement extends DivisionElement {
+      multiplyTen(value) {
+        console.log(value * 10);
+      }
+    }
+    window.customElements.define('do-multiply', MultiplyElement);
+  </script>
+</head>
+
+<body>
+  <do-division></do-division>
+  <do-multiply></do-multiply>
+</body>
+
+</html>

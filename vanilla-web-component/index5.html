@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A Pratical Guide to Vanilla Web Components: Module 1 - Web Components Fundamentals</title>
+</head>
+
+<body>
+
+  <template id="list-item">
+    <li>
+      <h1>A Movie Title</h1>
+      <p>A movie plot.</p>
+    </li>
+  </template>
+  <ul id="movie-list"></ul>
+  <script>
+    const items = [
+      { 'title': 'teste title', 'plot': 'teste plot' },
+      { 'title': 'teste title2', 'plot': 'teste plot2' },
+      { 'title': 'teste title3', 'plot': 'teste plot3' },
+    ];
+    const $template = document.getElementById('list-item');
+    const $list = document.getElementById('movie-list');
+    items.forEach((movie) => {
+      const $clone = document.importNode($template.content, true);
+      $clone.querySelector('h1').innerText = movie.title;
+      $clone.querySelector('p').innerText = movie.plot;
+      $list.appendChild($clone)
+    })
+  </script>
+</body>
+
+</html>

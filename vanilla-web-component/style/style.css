@@ -1,0 +1,75 @@
+.rw-container {
+  width: auto;
+  margin: auto;
+  border: dotted 1px #999;
+  padding: 20px;
+}
+
+.rw-container h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.rw-poll-container {
+  width: 500px;
+  margin: auto;
+  background-color: gainsboro;
+  font-size: 18px;
+}
+
+.rw-poll-container h3 {
+  background-color: dimgray;
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
+  color: white;
+}
+
+.rw-poll-container ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.rw-poll-container ul li {
+  padding: 20px 0;
+}
+
+.selected {
+  color: seashell;
+  background: olivedrab;
+}
+
+/* .rw-poll-container ul li:hover {
+  background: silver;
+  opacity: 0.9;
+} */
+
+.controls .btn {
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border: none;
+  background: silver;
+  margin: 10px;
+  position: relative;
+  left: 40%;
+  top: 100px;
+  background: #0d152d;
+  color: white;
+}
+
+.controls .btn-red {
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border: none;
+  background: silver;
+  margin: 10px;
+  position: relative;
+  left: 40%;
+  top: 100px;
+  background:  #E23F24;
+  color: white;
+}

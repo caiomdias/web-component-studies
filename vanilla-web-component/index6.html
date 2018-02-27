@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A Pratical Guide to Vanilla Web Components: Module 1 - Web Components Fundamentals</title>
+  <link rel="import" href="notice.html" id="notice" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.1.0/custom-elements-es5-adapter.js"></script>
+</head>
+<body>
+  <script>
+    const $link = document.getElementById('notice');
+    const content = $link.import.querySelector('.notice-frame');
+    document.body.appendChild(content.cloneNode(true));
+  </script>
+</body>
+</html>
